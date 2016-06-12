@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Location</title>
+</head>
+
+<body>
+<h2 id="location">Locate you</h2>
+
+<button id="find" onclick="getLocation()">Find location</button>
+
+<div id="mapholder"></div>
+
+<button id="sharelocation" onclick="send()">Share your location</button>
+
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+function send() {
+    var mycords = {
+        x_cord: lat,
+        y_cord: lon
+    }
+
+    $.ajax({
+        url: 'http://qaul.net/map',
+        type: 'post',
+        dataType: 'json',
+        success: function (data) {
+        alert("The post returned " + data );
+        },
+        data: mycords
+        });
+}
+
+var x = document.getElementById("location");
+document.getElementById('sharelocation').style.display='none';
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    document.getElementById('find').style.display='none';
+    document.getElementById('sharelocation').style.display='';
+    lat = position.coords.latitude;
+    lon = position.coords.longitude;
+    latlon = new google.maps.LatLng(lat, lon)
+    mapholder = document.getElementById('mapholder')
+    mapholder.style.height = '480px';
+    mapholder.style.width = '700px';
+
+    var myOptions = {
+    center:latlon,zoom:14,
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    mapTypeControl:false,
+    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+    }
+    
+    var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+
+</script>
+
+</body>
+</html>
