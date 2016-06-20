@@ -108,6 +108,11 @@ function init_start()
 		return false;
 	});
 	
+        // get location_submit
+        $("#location_submit").click(function(){
+                get_cords();
+	});
+        
 	// set username
 	name_form.validate({
 		submitHandler: function(form){
@@ -988,6 +993,26 @@ function web_send_msg()
 			$.mobile.changePage($("#page_dialog"),{role:"dialog"});
 		});
 };
+
+function web_send_location(pos)
+{
+	$.post(
+			"web_sendmsg",
+			{ "t": 11, "m": "My X cordinate is" + pos.coords.latitude + "and Y cord is" + pos.coords.longitude, "n": user_name, "e":1},
+			function(){
+				//insert_msg(chat, {id:0,type:11,name:user_name,msg:msg.val(),time:isoDateString(new Date())});
+				msg.val('');
+				web_getmsgs();
+			}
+		).error(function(){
+			// show alert
+			$.mobile.changePage($("#page_dialog"),{role:"dialog"});
+		});
+};
+
+function get_cords() {
+      navigator.geolocation.getCurrentPosition(web_send_location);
+}
 
 function web_file_button_download(hash, suffix, size, description)
 {
