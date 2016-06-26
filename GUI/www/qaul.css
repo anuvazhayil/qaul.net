@@ -120,6 +120,13 @@ abbr.timeago {
 	background-size: 64px 64px;
 }
 
+.ui-footer div.ui-navbar ul.ui-grid-c li a.i_plugin {
+	background-image: url('images/i_plug_64.png'); 
+	background-position: 50% +1px;
+	background-repeat: no-repeat; 
+	background-size: 64px 64px;
+}
+
 .ui-footer a {
 	height:40px;
 }

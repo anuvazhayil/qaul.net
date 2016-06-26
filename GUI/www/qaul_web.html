@@ -95,6 +95,7 @@
 				<input type="text" name="m" id="chat_msg" class="required chatlen"/>
 				<input class="submit i18n" type="submit" value="Send" id="chat_submit"/>
 				<input class="submit i18n" type="button" value="Share Location" id="location_submit"/>
+				<input class="submit i18n" type="button" value="Test" />
 			</form>
 		</p>
 		<div id="chat">&nbsp;</div>
@@ -105,6 +106,7 @@
 				<li><a href="#page_chat" onclick="javascript:web_getmsgs();" data-theme="b" data-transition="none" class="i_chat">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_users" onclick="javascript:web_getusers();" data-transition="none" class="i_users">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_file" onclick="javascript:web_getfiles();" data-transition="none" class="i_filesharing">&nbsp;<span class="ui-li-count"></span></a></li>
+				<li><a href="#page_plugin" onclick="javascript:get_plugins();" data-transition="none" class="i_plugin">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_pref" data-transition="none" class="i_prefs">&nbsp;</a></li>
 			</ul>
 		</div>
@@ -113,6 +115,26 @@
 		<p class="i18n">This qaul.net web client has only limited functionality.</p>
 		<p class="i18n">To send private messages, make voice calls, and upload files, please download and install the qaul.net app for your operating system.</p>
 		<p><a href="/index.html" target="_blank" class="i18n">Download qaul.net app</a></p>
+	</div>
+</div>
+
+<div data-role="page" id="page_plugin" data-theme="a">
+	<div data-role="content" >
+		<ul data-role="listview" data-inset="true" id="plugins">
+			<li id="plugins_divider" data-role="list-divider" class="i18n">Installed plugins</li>
+		</ul>
+		<br/>
+	</div>
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="ui-body-d">
+		<div data-role="navbar" data-theme="c">
+			<ul>
+				<li><a href="#page_chat" onclick="javascript:get_msgs();" data-transition="none" class="i_chat">&nbsp;<span class="ui-li-count"></span></a></li>
+				<li><a href="#page_users" onclick="javascript:get_users();" data-transition="none" class="i_users">&nbsp;<span class="ui-li-count"></span></a></li>
+				<li><a href="#page_file" onclick="javascript:file_update();" data-transition="none" class="i_filesharing">&nbsp;<span class="ui-li-count"></span></a></li>
+				<li><a href="#page_plugin" onclick="javascript:get_plugins();" data-theme="b" data-transition="none" class="i_plugin">&nbsp;<span class="ui-li-count"></span></a></li>
+				<li><a href="#page_pref" data-transition="none" class="i_prefs">&nbsp;</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -133,6 +155,7 @@
 				<li><a href="#page_chat" onclick="javascript:web_getmsgs();" data-transition="none" class="i_chat">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_users" onclick="javascript:web_getusers();" data-theme="b" data-transition="none" class="i_users">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_file" onclick="javascript:web_getfiles();" data-transition="none" class="i_filesharing">&nbsp;<span class="ui-li-count"></span></a></li>
+				<li><a href="#page_plugin" onclick="javascript:get_plugins();" data-transition="none" class="i_plugin">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_pref" data-transition="none" class="i_prefs">&nbsp;<span class="ui-li-count"></span></a></li>
 			</ul>
 		</div>
@@ -166,6 +189,7 @@
 				<li><a href="#page_chat" onclick="javascript:web_getmsgs();" data-transition="none" class="i_chat">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_users" onclick="javascript:web_getusers();" data-transition="none" class="i_users">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_file" onclick="javascript:web_getfiles();" data-transition="none" class="i_filesharing">&nbsp;<span class="ui-li-count"></span></a></li>
+				<li><a href="#page_plugin" onclick="javascript:get_plugins();" data-transition="none" class="i_plugin">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_pref" data-theme="b" data-transition="none" class="i_prefs">&nbsp;<span class="ui-li-count"></span></a></li>
 			</ul>
 		</div>
@@ -188,6 +212,7 @@
 				<li><a href="#page_chat" onclick="javascript:web_getmsgs();" data-transition="none" class="i_chat">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_users" onclick="javascript:web_getusers();" data-transition="none" class="i_users">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_file" onclick="javascript:web_getfiles();" data-theme="b" data-transition="none" class="i_filesharing">&nbsp;<span class="ui-li-count"></span></a></li>
+				<li><a href="#page_plugin" onclick="javascript:get_plugins();" data-transition="none" class="i_plugin">&nbsp;<span class="ui-li-count"></span></a></li>
 				<li><a href="#page_pref" data-transition="none" class="i_prefs">&nbsp;<span class="ui-li-count"></span></a></li>
 			</ul>
 		</div>
